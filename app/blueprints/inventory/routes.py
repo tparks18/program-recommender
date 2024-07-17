@@ -24,10 +24,7 @@ def create_item():
         title = form.title.data
         description = form.description.data
         cost = form.cost.data
-        image = form.image.data
         new_item = Item(title=title, description=description, cost=cost, user_id=current_user.id)
-        if image:
-            new_item.upload_to_cloudinary(image)
         flash(f"{new_item.title} has been created", 'is-success')
         return redirect(url_for('inventory.index'))
     return render_template('create_item.html', title=title, form=form)

@@ -7,7 +7,6 @@ class ItemForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
     description = StringField('Description', validators=[DataRequired()])
     cost = StringField('Cost', validators=[DataRequired()])
-    image = FileField('Post Image')
     submit = SubmitField('Create')
 
 
