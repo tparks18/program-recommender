@@ -18,16 +18,17 @@
       </a>
 
       
-      <!-- <a class="navbar-item" href="{{ url_for('about') }}">
-        About
-      </a> -->
-      
-      <!-- <a class="navbar-item" href="{{ url_for('resources') }}">
-        Resources
-      </a> -->
-      <a class="navbar-item" href="{{ url_for('inventory.search_items') }}">
-        Search Items
+      <a class="navbar-item" href="{{ url_for('inventory.quiz') }}">
+        Quiz
       </a>
+      
+      <a class="navbar-item" href="{{ url_for('inventory.admin') }}">
+        Admin
+      </a>
+
+      <!-- <a class="navbar-item" href="{{ url_for('inventory.search_items') }}">
+        Search Items
+      </a> -->
        {% if current_user.is_authenticated %}
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
@@ -35,13 +36,13 @@
         </a>
         <div class="navbar-dropdown">
           <a class="navbar-item" href="{{ url_for('inventory.create_item') }}">
-            Create a recommender template
+            Create recommender template
           </a>
           <a class="navbar-item" href="{{ url_for('inventory.my_items') }}">
             My Recommender Templates
           </a>
-          <a class="navbar-item" href="{{ url_for('inventory.all_items') }}">
-            All recommender templates
+          <a class="navbar-item" href="{{ url_for('inventory.list_programs') }}">
+            List of programs
           </a>
           <a class="navbar-item" href="{{ url_for('inventory.table_of_items') }}">
             Item table

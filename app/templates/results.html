@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Recommended Programs</h2>
+  {% for program in programs %}
+    <div>
+      <h3>{{ program.name }}</h3>
+      <p>{{ program.description }}</p>
+      <p>Time Commitment: {{ program.time_commitment }}</p>
+      <p>Years of Experience: {{ program.years_experience }}</p>
+      <p>Topics Addressed: {{ program.topics_addressed }}</p>
+    </div>
+  {% endfor %}
+{% endblock %}

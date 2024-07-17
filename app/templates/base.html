@@ -3,7 +3,7 @@
   <head>
     <title>
        {% block title %}
-      Community Garden Inventory App
+      Program Suggestor Tool
       {% endblock %}
     </title>
     <meta charset="utf-8" />
@@ -16,6 +16,7 @@
     <!-- Bulma CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/libraries/bulma.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/custom_css/custom.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
   {% endblock %}
   <script src="{{ url_for('static', filename='js/app.js') }}"></script>
@@ -33,5 +34,20 @@
         {% endblock %}
     
     </main>
+     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Select2 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+      <script>
+        $(document).ready(function() {
+            $('.select2').select2({
+                placeholder: 'Select options',
+                allowClear: true
+            });
+        });
+    </script>
   </body>
 </html>

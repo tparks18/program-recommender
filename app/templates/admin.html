@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Add a Program</h2>
+<form method="POST" action="{{ url_for('inventory.admin') }}">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.name.label(class="form-control-label") }}
+        {{ form.name(class="form-control") }}
+    </div>
+
+    <div class="form-group">
+        {{ form.description.label(class="form-control-label") }}
+        {{ form.description(class="form-control") }}
+    </div>
+
+    <div class="form-group">
+        {{ form.job_role.label(class="form-control-label") }}
+        {{ form.job_role(class="form-control select2", multiple="multiple") }}
+    </div>
+
+    <div class="form-group">
+        {{ form.years_experience.label(class="form-control-label") }}
+        {{ form.years_experience(class="form-control select2", multiple="multiple") }}
+    </div>
+
+    <div class="form-group">
+        {{ form.time_commitment.label(class="form-control-label") }}
+        {{ form.time_commitment(class="form-control") }}
+    </div>
+
+    <div class="form-group">
+        {{ form.topics_addressed.label(class="form-control-label") }}
+        {{ form.topics_addressed(class="form-control select2", multiple="multiple") }}
+    </div>
+
+    <div class="form-group">
+        {{ form.submit(class="btn btn-primary") }}
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ super() }} | Program Details
+{% endblock title %}
+
+{% block content %}
+<h3>Program Details</h3>
+<hr />
+<div class="program-details">
+    <p><strong>Name:</strong> {{ program.name }}</p>
+    <p><strong>Description:</strong> {{ program.description }}</p>
+    <p><strong>Job Role:</strong> {{ program.job_role }}</p>
+    <p><strong>Years of Experience:</strong> {{ program.years_experience }}</p>
+    <p><strong>Time Commitment:</strong> {{ program.time_commitment }}</p>
+    <p><strong>Topics Addressed:</strong> {{ program.topics_addressed }}</p>
+    <a href="{{ url_for('inventory.list_programs') }}" class="btn btn-secondary">Back to List</a>
+</div>
+{% endblock %}
