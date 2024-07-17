@@ -1,0 +1,13 @@
+<div class="container">
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for c, m in messages %}
+            <div class="notification {{c}} is-light">
+              <button onclick="this.parentElement.style.display='none'" class="delete"></button>
+                {{ m }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+</div>
+

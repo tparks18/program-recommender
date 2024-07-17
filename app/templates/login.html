@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+
+{% block content %} 
+
+<br>
+<h1>Login Here!</h1>
+<br>
+    <form method="post">
+        {{ form.csrf_token }}
+        <div class="field " style="width: 33%">
+            {{ form.username.label }}
+            {{ form.username(class='input', placeholder='Username') }}
+
+            {{ form.password.label }}
+            {{ form.password(class='input', placeholder='Password') }}
+
+            {{ form.submit(class='button is-primary mt-3') }}
+        </div>
+    </form>
+
+
+{% endblock content %}
+

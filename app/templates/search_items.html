@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h1>Search Items</h1>
+
+<form action="" method="post">
+    {{ form.csrf_token }}
+    <div class="field">
+        {{ form.search(class='input', placeholder='Search Items Here') }}
+
+        {{ form.submit(class='button is-primary mt-3')}}
+    </div>
+</form>
+
+<div class="columns is-multiline is-mobile m-3">
+  {% for i in items %}
+  <div class="card column is-one-quarter m-1" style="width: 33%">
+    <header class="card-header has-background-primary">
+      <p class="card-header-title">
+        {{ i.title }}
+      </p>
+    </header>
+    <div class="card-content has-background-primary-light">
+      <div class="content">
+        {{ i.description }}
+        <br>
+        <time>{{ i.date_created }}</time>
+      </div>
+    </div>
+    <footer class="card-footer">
+      <a href="{{ url_for('inventory.single_item', item_id=i.id) }}" class="card-footer-item">More Info</a>
+    </footer>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock content %}

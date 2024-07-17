@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+
+{% block content %} 
+
+<br>
+<h1>Sign Up Here!</h1>
+<br>
+
+    <form method="post">
+        {{ form.csrf_token }}
+        <div class="field " style="width: 33%">
+            {{ form.email.label }}
+            {{ form.email(class='input', placeholder='Email') }}
+
+            {{ form.username.label }}
+            {{ form.username(class='input', placeholder='Username') }}
+
+            {{ form.password.label }}
+            {{ form.password(class='input', placeholder='Password') }}
+
+            {{ form.confirm_pass.label }}
+            {{ form.confirm_pass(class='input', placeholder='Confirm Password') }}
+
+            {{ form.submit(class='button is-primary mt-3') }}
+        </div>
+    </form>
+
+
+{% endblock content %}
+

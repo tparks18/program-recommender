@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+
+{% block content %} 
+
+{% if current_user.is_authenticated %}
+<h1 class="mb-4">Greetings {{ current_user.username }}!</h1>
+{% else %}
+<h1>Kindly sign up to use our website</h1>
+{% endif %}
+<h1 class="is-size-3">Find the Right Program for You</h1>
+<hr>
+<p>
+    This tool is designed to help interested participants find personalized recommendations for the types of programs they might be interested in. By answering a few questions about your preferences and needs, you can discover the perfect fit to further your involvement and impact in Chicago's public education system.
+</p>
+
+<!-- <img src="{{ url_for('static', filename='img/Cover.png') }}" alt="home page image of two people gardening"> -->
+
+
+
+
+
+
+{% endblock content %}

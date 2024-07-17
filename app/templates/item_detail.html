@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h1>Item Name: {{ item.title }}</h1>
+<h5>Added by: {{ item.author }}</h5>
+<h5>Cost: {{ item.cost }}</h5>
+<h5>Date Added: {{ item.date_created }}</h5>
+<h5>Description: {{ item.description }}</h5>
+<hr>
+
+<figure class="image is-128x128">
+    <img src="{{ item.image_url }}" alt="{{ item.description }}">
+</figure>
+
+
+{% endblock content %}

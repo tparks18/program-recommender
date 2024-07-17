@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <h1>My Recommender Templates</h1>
+    <div class="notification is-danger">
+  <button class="delete" onclick="this.parentElement.style.display='none'"></button>
+  Deleting an item is <strong>permanent</strong>. Do not delete unless you are sure.
+</div>
+
+    <div class="columns is-multiline is-mobile m-3">
+  {% for i in items %}
+  <div class="card column is-one-quarter m-1" style="width: 33%">
+    <header class="card-header has-background-primary">
+      <p class="card-header-title">
+        {{ i.title }}
+      </p>
+    </header>
+    <div class="card-content has-background-primary-light">
+      <div class="content">
+        {{ i.description }}
+        ${{ i.cost }}
+        <br>
+        <time>{{ i.date_created }}</time>
+      </div>
+    </div>
+    <footer class="card-footer">
+        <a href="{{ url_for('inventory.single_item', item_id=i.id) }}" class="card-footer-item">More Info</a>
+      <a href="{{ url_for('inventory.edit_item', item_id=i.id) }}" class="card-footer-item">Edit</a>
+      <a href="{{ url_for('inventory.delete_item', item_id=i.id) }}" class="card-footer-item">Delete</a>
+    </footer>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock content %}
