@@ -1,33 +1,44 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Program Recommender Quiz</h2>
+<h2 class="is-size-3 mb-2">Program Recommender Quiz</h2>
 <form method="POST" action="{{ url_for('inventory.quiz') }}">
     {{ form.hidden_tag() }}
 
-    <div class="form-group">
-        {{ form.job_role.label(class="form-control-label") }}
-        {{ form.job_role(class="form-control") }}
+    <div class="field">
+        {{ form.job_role.label(class="label") }}
+        <div class="control">
+            {{ form.job_role(class="input") }}
+        </div>
     </div>
 
-    <div class="form-group">
-        {{ form.years_experience.label(class="form-control-label") }}
-        {{ form.years_experience(class="form-control") }}
+    <div class="field">
+        {{ form.years_experience.label(class="label") }}
+        <div class="control">
+            {{ form.years_experience(class="input") }}
+        </div>
     </div>
 
-    <div class="form-group">
-        {{ form.time_commitment.label(class="form-control-label") }}
-        {{ form.time_commitment(class="form-control select2", multiple="multiple") }}
+    <div class="field">
+        {{ form.time_commitment.label(class="label") }}
+        <div class="control">
+            {{ form.time_commitment(class="input select2", multiple="multiple") }}
+        </div>
     </div>
 
-    <div class="form-group">
-        {{ form.topics_addressed.label(class="form-control-label") }}
-        {{ form.topics_addressed(class="form-control select2", multiple="multiple") }}
+    <div class="field">
+        {{ form.topics_addressed.label(class="label") }}
+        <div class="control">
+            {{ form.topics_addressed(class="input select2", multiple="multiple") }}
+        </div>
     </div>
 
-    <div class="form-group">
-        {{ form.submit(class="btn btn-primary") }}
+    <div class="field">
+        <div class="control">
+            {{ form.submit(class="button is-primary") }}
+        </div>
     </div>
 </form>
 {% endblock %}
+
 
