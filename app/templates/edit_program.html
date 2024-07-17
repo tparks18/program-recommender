@@ -1,57 +1,61 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+
+{% block title %}
+{{ super() }} | Edit Program
+{% endblock title %}
 
 {% block content %}
-<h3 class="title is-3">Add a Program</h3>
+<h3 class="title is-3">Edit Program</h3>
 <hr />
-<form method="POST" action="{{ url_for('inventory.admin') }}">
+<form method="POST" action="{{ url_for('inventory.edit_program', program_id=program.id) }}">
     {{ form.hidden_tag() }}
-    <div class="field is-size-5">
-        {{ form.name.label(class="label") }}
+
+    <div class="field">
+        <label class="label">{{ form.name.label }}</label>
         <div class="control">
             {{ form.name(class="input") }}
         </div>
     </div>
 
-    <div class="field is-size-5">
-        {{ form.description.label(class="label") }}
+    <div class="field">
+        <label class="label">{{ form.description.label }}</label>
         <div class="control">
             {{ form.description(class="textarea") }}
         </div>
     </div>
 
-    <div class="field is-size-5">
-        {{ form.job_role.label(class="label") }}
+    <div class="field">
+        <label class="label">{{ form.job_role.label }}</label>
         <div class="control">
             {{ form.job_role(class="input select2", multiple="multiple") }}
         </div>
     </div>
 
-    <div class="field is-size-5">
-        {{ form.years_experience.label(class="label") }}
+    <div class="field">
+        <label class="label">{{ form.years_experience.label }}</label>
         <div class="control">
             {{ form.years_experience(class="input select2", multiple="multiple") }}
         </div>
     </div>
 
-    <div class="field is-size-5">
-        {{ form.time_commitment.label(class="label") }}
+    <div class="field">
+        <label class="label">{{ form.time_commitment.label }}</label>
         <div class="control">
             {{ form.time_commitment(class="input") }}
         </div>
     </div>
 
-    <div class="field is-size-5">
-        {{ form.topics_addressed.label(class="label") }}
+    <div class="field">
+        <label class="label">{{ form.topics_addressed.label }}</label>
         <div class="control">
             {{ form.topics_addressed(class="input select2", multiple="multiple") }}
         </div>
     </div>
 
-    <div class="field is-size-5 mb-3">
+    <div class="field mb-4">
         <div class="control">
             {{ form.submit(class="button is-primary") }}
         </div>
     </div>
 </form>
 {% endblock %}
-

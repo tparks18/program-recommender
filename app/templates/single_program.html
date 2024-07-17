@@ -5,15 +5,30 @@
 {% endblock title %}
 
 {% block content %}
-<h3>Program Details</h3>
+<h3 class="title is-3">Program Details</h3>
 <hr />
-<div class="program-details">
-    <p><strong>Name:</strong> {{ program.name }}</p>
-    <p><strong>Description:</strong> {{ program.description }}</p>
-    <p><strong>Job Role:</strong> {{ program.job_role }}</p>
-    <p><strong>Years of Experience:</strong> {{ program.years_experience }}</p>
-    <p><strong>Time Commitment:</strong> {{ program.time_commitment }}</p>
-    <p><strong>Topics Addressed:</strong> {{ program.topics_addressed }}</p>
-    <a href="{{ url_for('inventory.list_programs') }}" class="btn btn-secondary">Back to List</a>
+
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      {{ program.name }}
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <p><strong>Description:</strong> {{ program.description }}</p>
+      <p><strong>Job Role:</strong> {{ program.job_role }}</p>
+      <p><strong>Years of Experience:</strong> {{ program.years_experience }}</p>
+      <p><strong>Time Commitment:</strong> {{ program.time_commitment }}</p>
+      <p><strong>Topics Addressed:</strong> {{ program.topics_addressed }}</p>
+      <br />
+    </div>
+  </div>
+  <footer class="card-footer">
+    <a href="{{ url_for('inventory.edit_program', program_id=program.id) }}" class="card-footer-item">Edit</a>
+    <a href="{{ url_for('inventory.delete_program', program_id=program.id) }}" class="card-footer-item">Delete</a>
+  </footer>
 </div>
+
+<a href="{{ url_for('inventory.list_programs') }}" class="button is-primary" style="margin-top: 1rem;">Back to List</a>
 {% endblock %}

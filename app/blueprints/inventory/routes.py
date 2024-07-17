@@ -20,33 +20,33 @@ def search_items():
         items = Item.query.filter( (Item.title.ilike(f'%{term}%')) | (Item.description.ilike(f'%{term}%')) ).all()
     return render_template('search_items.html', title=title, items=items, form=form)
 
-
-@inventory.route('/edit-items/<item_id>', methods=["GET", "POST"])
-@login_required
-def edit_item(item_id):
-    item = Item.query.get_or_404(item_id)
-    if item.author != current_user:
-        flash('You do not have edit access to this item.', 'is-danger')
-        return redirect(url_for('inventory.my_items'))
-    title = f"Edit {item.title}"
-    form = ItemForm()
+@inventory.route('/program/<int:program_id>/edit', methods=['GET', 'POST'])
+def edit_program(program_id):
+    program = Program.query.get_or_404(program_id)
+    form = ProgramForm(obj=program)
+    
     if form.validate_on_submit():
-        item.update(**form.data)
-        flash(f'{item.title} has been updated', 'is-success')
-        return redirect(url_for('inventory.my_items'))
+        program.name = form.name.data
+        program.description = form.description.data
+        program.job_role = ', '.join(form.job_role.data)
+        program.years_experience = ', '.join(form.years_experience.data)
+        program.time_commitment = form.time_commitment.data
+        program.topics_addressed = ', '.join(form.topics_addressed.data)
+        
+        db.session.commit()
+        flash(f'{program.name} has been updated', 'is-success')
+        return redirect(url_for('inventory.single_program', program_id=program_id))
+    
+    return render_template('edit_program.html', form=form, program=program)
 
-    return render_template('item_edit.html', title=title, item=item, form=form)
 
-@inventory.route('/delete-items/<item_id>')
+@inventory.route('/delete-program/<int:program_id>')
 @login_required
-def delete_item(item_id):
-    item = Item.query.get_or_404(item_id)
-    if item.author != current_user:
-        flash('You do not have delete access to this item', 'is-danger')
-    else:
-        item.delete()
-        flash(f'{item.title} has been deleted.', 'is-success')
-    return redirect(url_for('inventory.my_items'))
+def delete_program(program_id):
+    program = Program.query.get_or_404(program_id)
+    program.delete()
+    flash(f'{program.name} has been deleted.', 'is-success')
+    return redirect(url_for('inventory.list_programs'))
 
 @inventory.route('/quiz', methods=['GET', 'POST'])
 def quiz():
