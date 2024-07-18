@@ -34,10 +34,11 @@ def delete_program(program_id):
     return redirect(url_for('inventory.list_programs'))
 
 def calculate_match_score(program, form_data):
-    # Exclude specific programs based on job role
-    if form_data["job_role"] in ["principal", "assistant_principal"] and program.name == "EAC":
+    # Exclude programs meant only for teacher leaders if the user is a principal or assistant principal
+    program_roles = [role.strip() for role in program.job_role.split(',')]
+    if form_data["job_role"] in ["principal", "assistant_principal"] and set(program_roles) == {"teacher_leader"}:
         return 0
-    
+
     # Ensure exact match for time commitment
     if program.time_commitment not in form_data["time_commitment"].split(', '):
         return 0
