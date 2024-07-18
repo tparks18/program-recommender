@@ -21,9 +21,6 @@
       <a class="navbar-item" href="{{ url_for('inventory.quiz') }}">
         Recommender
       </a>
-      <!-- <a class="navbar-item" href="{{ url_for('inventory.search_items') }}">
-        Search Items
-      </a> -->
        {% if current_user.is_authenticated %}
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
@@ -52,7 +49,7 @@
             Admin Register
           </a>
           <a class="button is-light" href="{{ url_for('auth.login') }}">
-            Log in
+            Admin Log in
           </a>
           {% endif %}
         </div>

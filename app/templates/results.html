@@ -1,13 +1,30 @@
 {% extends "base.html" %}
+{% block title %}
+{{ super() }} | Recommended Programs
+{% endblock title %}
+
 {% block content %}
-  <h2>Recommended Programs</h2>
+<h3 class="title is-3">Recommended Programs</h3>
+<hr />
+<div class="columns is-multiline">
   {% for program in programs %}
-    <div>
-      <h3>{{ program.name }}</h3>
-      <p>{{ program.description }}</p>
-      <p>Time Commitment: {{ program.time_commitment }}</p>
-      <p>Years of Experience: {{ program.years_experience }}</p>
-      <p>Topics Addressed: {{ program.topics_addressed }}</p>
+    <div class="column is-one-third">
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            {{ program.name }}
+          </p>
+        </header>
+        <div class="card-content">
+          <div class="content">
+            <p>{{ program.description }}</p>
+            <p><strong>Time Commitment:</strong> {{ program.time_commitment }}</p>
+            <p><strong>Years in Role:</strong> {{ program.years_experience }}</p>
+            <p><strong>Topics Addressed:</strong> {{ program.topics_addressed }}</p>
+          </div>
+        </div>
+      </div>
     </div>
   {% endfor %}
+</div>
 {% endblock %}

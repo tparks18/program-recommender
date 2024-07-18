@@ -5,6 +5,7 @@
 <div class="container is-flex is-justify-content-center is-align-items-center" style="min-height: 80vh;">
     <div class="box" style="width: 100%; min-width: 400px;">
         <h3 class="title is-3 has-text-centered">Sign Up</h3>
+        <p class="is-size-6 has-text-centered">For internal use only</p>
         <hr />
 
         <form method="post">
@@ -39,6 +40,13 @@
             </div>
 
             <div class="field">
+                {{ form.signup_code.label(class="label") }}
+                <div class="control">
+                    {{ form.signup_code(class='input', placeholder='Sign-up Code') }}
+                </div>
+            </div>
+
+            <div class="field">
                 <div class="control">
                     {{ form.submit(class='button is-primary is-fullwidth mt-3') }}
                 </div>
@@ -48,4 +56,3 @@
 </div>
 
 {% endblock content %}
-

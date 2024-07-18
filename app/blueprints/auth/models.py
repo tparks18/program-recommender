@@ -14,7 +14,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(50), unique=True, nullable=False)
     password = db.Column(db.String(256), nullable=False)
     date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    items = db.relationship('Item', backref='author', lazy='dynamic')
+    # items = db.relationship('Item', backref='author', lazy='dynamic')
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

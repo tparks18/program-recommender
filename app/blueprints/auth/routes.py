@@ -12,15 +12,24 @@ def signup():
         email = form.email.data
         username = form.username.data
         password = form.password.data
-        users_with_that_info = User.query.filter((User.username==username)|(User.email==email)).all() 
+        signup_code = form.signup_code.data
+
+        if signup_code != 'theFundAdmin2024!':
+            flash('Invalid sign-up code', 'is-danger')
+            return render_template('signup.html', title=title, form=form)
+
+        users_with_that_info = User.query.filter((User.username == username) | (User.email == email)).all()
         if users_with_that_info:
             flash(f"There is already a user with that username and/or email. Please try again", "is-danger")
             return render_template('signup.html', title=title, form=form)
+
         new_user = User(email=email, username=username, password=password)
-        flash(f"{new_user.username} has succesfully signed up.", "is-success")
+        
+        flash(f"{new_user.username} has successfully signed up.", "is-success")
         return redirect(url_for('inventory.index'))
 
     return render_template('signup.html', title=title, form=form)
+
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():

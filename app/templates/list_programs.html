@@ -7,7 +7,19 @@
 {% block content %}
 <h3 class="title is-3">List of Programs</h3>
 <hr />
-<div class="table-container">
+<form method="get" action="{{ url_for('inventory.list_programs') }}">
+    <div class="field">
+        <label class="label">Search by Program Name</label>
+        <div class="control">
+            <input class="input" type="text" name="search" value="{{ search_query }}" placeholder="Enter program name">
+        </div>
+    </div>
+    <div class="control">
+        <button class="button is-primary" type="submit">Search</button>
+    </div>
+</form>
+<hr />
+<div class="table-container mb-4">
     <table class="table">
     <thead class="has-background-primary">
         <tr>
