@@ -27,10 +27,11 @@
             flex-direction: column;
             min-height: 100vh;
         }
-        main.container {
-            flex: 1;
+        .content-wrap {
+            flex: 1 0 auto; /* Ensures it grows and shrinks as needed */
         }
         .footer {
+            flex-shrink: 0; /* Ensures the footer stays at the bottom */
             background-color: #f5f5f5;
             padding: 2rem 1.5rem;
         }
@@ -45,12 +46,14 @@
 
     {% include './includes/flash_messages.html' %}
 
-    <main class="container">
-        {% block content %}
-        {% endblock %}
-    </main>
+    <div class="content-wrap">
+        <main class="container">
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
 
-    <footer class="mt-4 footer">
+    <footer class="footer">
         <div class="content has-text-centered">
             <p>
                 <strong>Program Suggestor Tool</strong> by <a href="https://thefundchicago.org/">Chicago Public Education Fund</a>.
