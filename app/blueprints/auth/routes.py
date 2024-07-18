@@ -26,7 +26,7 @@ def signup():
         new_user = User(email=email, username=username, password=password)
         
         flash(f"{new_user.username} has successfully signed up.", "is-success")
-        return redirect(url_for('inventory.index'))
+        return redirect(url_for('index'))
 
     return render_template('signup.html', title=title, form=form)
 
@@ -42,7 +42,7 @@ def login():
         if user and user.check_password(password):
             login_user(user)
             flash(f'{user} has successfully logged in', 'is-success')
-            return redirect(url_for('inventory.index'))
+            return redirect(url_for('index'))
         else:
             flash('Username and/or password is incorrect', 'is-danger')
             
@@ -53,4 +53,4 @@ def login():
 def logout():
     logout_user()
     flash('You have successfully logged out', 'is-success')
-    return redirect(url_for('inventory.index'))
+    return redirect(url_for('index'))

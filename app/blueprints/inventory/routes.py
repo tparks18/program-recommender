@@ -5,10 +5,6 @@ from flask_login import login_required, current_user
 from .forms import ProgramForm, QuizForm
 from .models import QuizResponse, Program
 
-@inventory.route('/')
-def index():
-    title = 'Home'
-    return render_template('index.html', title=title)
 
 @inventory.route('/program/<int:program_id>/edit', methods=['GET', 'POST'])
 def edit_program(program_id):
