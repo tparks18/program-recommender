@@ -1,74 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title>
-       {% block title %}
-      Program Suggestor Tool
-      {% endblock %}
+        {% block title %}
+        Program Suggestor Tool
+        {% endblock %}
     </title>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-      {% block styles %}
+    {% block styles %}
     <!-- Bulma CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/libraries/bulma.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/custom_css/custom.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
 
-     <style>
-      html {
-          height: 100%;
-      }
-      body {
-          display: flex;
-          flex-direction: column;
-          min-height: 100vh;
-      }
-      main {
-          flex: 1;
-      }
-      .footer {
-          background-color: #f5f5f5;
-          padding: 2rem 1.5rem;
-      }
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main.container {
+            flex: 1;
+        }
+        .footer {
+            background-color: #f5f5f5;
+            padding: 2rem 1.5rem;
+        }
     </style>
-  {% endblock %}
-  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-  </head>
-  <body>
+    {% endblock %}
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</head>
+<body>
     <header>
-      {% include './includes/nav.html' %}
+        {% include './includes/nav.html' %}
     </header>
 
-{% include './includes/flash_messages.html' %}
+    {% include './includes/flash_messages.html' %}
 
     <main class="container">
-        {% block content %} 
-        
+        {% block content %}
         {% endblock %}
-    
     </main>
+
     <footer class="mt-4 footer">
-  <div class="content has-text-centered">
-    <p>
-      <strong>Program Suggestor Tool</strong> by <a href="https://thefundchicago.org/">Chicago Public Education Fund</a>.
-      The source code is licensed
-      <a href="https://opensource.org/license/mit">MIT</a>. 
-    </p>
-  </div>
-</footer>
-     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <div class="content has-text-centered">
+            <p>
+                <strong>Program Suggestor Tool</strong> by <a href="https://thefundchicago.org/">Chicago Public Education Fund</a>.
+                The source code is licensed
+                <a href="https://opensource.org/license/mit">MIT</a>.
+            </p>
+        </div>
+    </footer>
 
-    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Select2 JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-      <script>
+    <script>
         $(document).ready(function() {
             $('.select2').select2({
                 placeholder: 'Select options',
@@ -76,5 +71,5 @@
             });
         });
     </script>
-  </body>
+</body>
 </html>
