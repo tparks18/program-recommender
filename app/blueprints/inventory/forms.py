@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired
 
 class QuizForm(FlaskForm):
     job_role = SelectField('What is your current role?', choices=[('principal', 'Principal'), ('assistant_principal', 'Assistant Principal'), ('teacher_leader', 'Teacher Leader: teachers, network staff, and school support staff')], validators=[DataRequired()])
-    years_experience = SelectField('How long have you been in your current role', choices=[('0-1', '0-1'), ('2-5', '2-5'), ('6+', '6+')], validators=[DataRequired()])
+    years_experience = SelectField('How long have you been in your current role?', choices=[('0-1', '0-1'), ('2-5', '2-5'), ('6+', '6+')], validators=[DataRequired()])
     time_commitment = SelectMultipleField(
     'How much time can you commit to a program?',
     choices=[
@@ -18,7 +18,7 @@ class QuizForm(FlaskForm):
     validators=[DataRequired()]
 )
     topics_addressed = SelectMultipleField(
-        'Topics Addressed',
+        'What topics are you interested in?',
         choices=[
             ('budgeting', 'Budgeting'),
             ('community_collaboration', 'Community Collaboration'),

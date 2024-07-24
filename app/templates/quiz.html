@@ -5,40 +5,58 @@
 <form method="POST" action="{{ url_for('inventory.quiz') }}">
     {{ form.hidden_tag() }}
 
-    <div class="field">
-        {{ form.job_role.label(class="label") }}
-        <div class="control">
-            {{ form.job_role(class="input") }}
+    <div class="columns">
+        <div class="column is-half">
+            <div class="field">
+                {{ form.job_role.label(class="label") }}
+                <div class="control">
+                    {{ form.job_role(class="input") }}
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="field">
-        {{ form.years_experience.label(class="label") }}
-        <div class="control">
-            {{ form.years_experience(class="input") }}
+    <div class="columns">
+        <div class="column is-half">
+            <div class="field">
+                {{ form.years_experience.label(class="label") }}
+                <div class="control">
+                    {{ form.years_experience(class="input") }}
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="field">
-        {{ form.time_commitment.label(class="label") }}
-        <div class="control">
-            {{ form.time_commitment(class="input select2", multiple="multiple") }}
+    <div class="columns">
+        <div class="column is-half">
+            <div class="field">
+                {{ form.time_commitment.label(class="label") }}
+                <div class="control">
+                    {{ form.time_commitment(class="input select2", multiple="multiple") }}
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="field">
-        {{ form.topics_addressed.label(class="label") }}
-        <div class="control">
-            {{ form.topics_addressed(class="input select2", multiple="multiple") }}
+    <div class="columns">
+        <div class="column is-half">
+            <div class="field">
+                {{ form.topics_addressed.label(class="label") }}
+                <div class="control">
+                    {{ form.topics_addressed(class="input select2", multiple="multiple") }}
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="field">
-        <div class="control">
-            {{ form.submit(class="button is-primary") }}
+    <div class="columns">
+        <div class="column is-half">
+            <div class="field">
+                <div class="control">
+                    {{ form.submit(class="button is-primary") }}
+                </div>
+            </div>
         </div>
     </div>
 </form>
 {% endblock %}
-
-
