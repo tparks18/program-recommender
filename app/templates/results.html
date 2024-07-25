@@ -18,9 +18,9 @@
         <div class="card-content">
           <div class="content">
             <p>{{ program.description }}</p>
-            <p><strong>Time Commitment:</strong> {{ program.time_commitment }}</p>
+            <p><strong>Time Commitment:</strong> {{ program.time_commitment.replace('_', ' ') }}</p>
             <p><strong>Years in Role:</strong> {{ program.years_experience }}</p>
-            <p><strong>Topics Addressed:</strong> {{ program.topics_addressed }}</p>
+            <p><strong>Topics Addressed:</strong> {{ program.topics_addressed.replace('_', ' ') }}</p>
           </div>
         </div>
       </div>
